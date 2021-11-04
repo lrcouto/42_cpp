@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 22:43:53 by lcouto            #+#    #+#             */
-/*   Updated: 2021/11/03 18:42:46 by lcouto           ###   ########.fr       */
+/*   Updated: 2021/11/04 01:40:33 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 class	PhoneBook
 {
 	private:
-	Contact	_contacts[8];
-	int		_insertionIndex;
+		Contact	_contacts[8];
+		int		_insertionIndex;
 
 	public:
+		void	search(void);
+		
 		PhoneBook(void);
 		~PhoneBook(void);
 };
