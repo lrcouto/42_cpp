@@ -6,7 +6,7 @@
 #    By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/15 22:30:05 by lcouto            #+#    #+#              #
-#    Updated: 2021/10/25 21:11:52 by lcouto           ###   ########.fr        #
+#    Updated: 2021/11/04 16:33:30 by lcouto           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,8 @@ DIR_SRCS	=	src
 DIR_BUILD	=	build
 
 SRCS		=	$(DIR_SRCS)/main.cpp \
+				$(DIR_SRCS)/PhoneBook.cpp \
+				$(DIR_SRCS)/Contact.cpp
 
 BUILD		=	$(subst $(DIR_SRCS), $(DIR_BUILD), $(SRCS:.cpp=.o))
 
