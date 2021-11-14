@@ -6,7 +6,7 @@
 #    By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/15 22:30:05 by lcouto            #+#    #+#              #
-#    Updated: 2021/11/08 16:26:22 by lcouto           ###   ########.fr        #
+#    Updated: 2021/11/13 22:16:14 by lcouto           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CC	= clang++
 
 RM	= rm -rf
 
-CFLAGS	= -Wall -Wextra -Werror -g  -std=c++98
+CFLAGS	= -Wall -Wextra -Werror -g -std=c++98
 
 DIR_SRCS	=	src
 DIR_BUILD	=	build
