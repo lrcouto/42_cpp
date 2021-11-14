@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:17:22 by lcouto            #+#    #+#             */
-/*   Updated: 2021/11/13 22:09:01 by lcouto           ###   ########.fr       */
+/*   Updated: 2021/11/13 22:20:37 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ void Account::makeDeposit(int deposit)
 	std::cout << "nb_deposits:" << this->_nbDeposits << std::endl;
 }
 
-bool Account::makeWithdrawal( int withdrawal )
+bool Account::makeWithdrawal(int withdrawal)
 {
 	Account::_displayTimestamp();
 
