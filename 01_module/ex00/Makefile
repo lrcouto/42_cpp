@@ -6,7 +6,7 @@
 #    By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/15 22:30:05 by lcouto            #+#    #+#              #
-#    Updated: 2021/11/22 14:55:05 by lcouto           ###   ########.fr        #
+#    Updated: 2021/11/30 21:39:58 by lcouto           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,10 @@ CFLAGS	= -Wall -Wextra -Werror -g -std=c++98
 DIR_SRCS	=	src
 DIR_BUILD	=	build
 
-SRCS		=	$(DIR_SRCS)/tests.cpp \
-				$(DIR_SRCS)/Account.cpp \
+SRCS		=	$(DIR_SRCS)/main.cpp \
+				$(DIR_SRCS)/newZombie.cpp \
+				$(DIR_SRCS)/Chump.cpp \
+				$(DIR_SRCS)/Zombie.cpp \
 
 BUILD		=	$(subst $(DIR_SRCS), $(DIR_BUILD), $(SRCS:.cpp=.o))
 
