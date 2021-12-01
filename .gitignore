@@ -31,4 +31,5 @@
 *.out
 *.app
 .vscode/settings.json
-Module 00/ex01/phonebook
+.vscode/launch.json
+.vscode
