@@ -33,3 +33,6 @@
 .vscode/settings.json
 .vscode/launch.json
 .vscode
+
+# Shit that's not even part of the project
+*.pdf
