@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 22:29:04 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/13 18:34:36 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/13 18:53:02 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(void)
 
 	std::cout << "\nQuick, use your magic " << howManyZombies << "-zombie-killing-shotgun to dispose of all of the " << zombieName << "!!\n" << std::endl;
 
-	destroyHorde(howManyZombies, myHorde);
+	destroyHorde(myHorde);
 
 	std::cout << "\nThe horde is no more, and now this program will end. Goodbye.\n" << std::endl;
 	return (0);

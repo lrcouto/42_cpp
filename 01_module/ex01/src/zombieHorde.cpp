@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 17:17:41 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/13 18:38:39 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/13 18:52:52 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,7 @@ Zombie* zombieHorde(int N, std::string name)
     return (zombieHorde);
 }
 
-void destroyHorde(int N, Zombie *zombieHorde)
+void destroyHorde(Zombie *zombieHorde)
 {
-    for (int i = 0; i < N; i++)
-    {
-        zombieHorde[i].~Zombie();
-    }
     delete [] zombieHorde;
 }
