@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 14:55:59 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/13 18:03:16 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/13 18:06:02 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,11 @@ class Zombie
 		Zombie(void);
 		~Zombie(void);
 
+		void	setZombieName(std::string name);
 		void	announce(void);
 };
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
+Zombie	*zombieHorde(int N, std::string name);
+void	destroyHorde(int N, Zombie *zombieHorde);
 
 #endif
