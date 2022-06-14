@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 23:15:27 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/14 02:40:00 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/14 15:20:01 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class HumanA
 {
     private:
         std::string _name;
-        Weapon      _weapon;
+        Weapon      &_weapon;
     
     public:
         HumanA(std::string name, Weapon &weapon);
