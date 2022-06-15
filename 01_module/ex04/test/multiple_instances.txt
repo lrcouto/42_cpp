@@ -1,0 +1,5 @@
+This text has multiple instances of the same repeated text
+It's supposed to indicate that a text can be written many times
+and the program will replace this text for another text.
+
+Try replacing the word "text" in this text for a different text.
