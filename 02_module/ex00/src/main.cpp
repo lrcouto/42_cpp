@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 01:23:10 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/16 02:35:25 by lcouto           ###   ########.fr       */
+/*   Created: 2022/06/16 02:06:58 by lcouto            #+#    #+#             */
+/*   Updated: 2022/06/16 02:35:26 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Weapon.hpp"
+#include "Fixed.hpp"
+# include <iostream>
 
-Weapon::Weapon(std::string weaponType)
+int	main(void)
 {
-	this->_type = weaponType;
-	return ;
-}
+	Fixed a;
+	Fixed b(a);
+	Fixed c;
 
-Weapon::~Weapon(void)
-{
-	return ;
-}
+	c = b;
 
-void	Weapon::setType(std::string weaponType)
-{
-	std::cout << "The fighter drops their " << this->getType();
-	this->_type = weaponType;
-	std::cout << " and grabs a " << this->getType() << std::endl;
-}
-
-std::string	const	&Weapon::getType(void)
-{
-	return (this->_type);
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	
+	return (0);
 }
