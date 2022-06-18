@@ -14,3 +14,5 @@ Repository for the code for the 42 São Paulo C++ introduction to OOP.
   - Adding the Fixed class for module_02/ex00. Due to a joke comparing the orthodox canonical class with the medieval orthodox church, I have added a classic illumination of a knight fighting a snail to my class.
 
   **June 17th 2022** - Defined the class parameters required for ex01 on module_02. Did one evaluation for module_01, but couldn't get the second yet. Studied a bit more about how computers represent numbers. Will aim to finish tomorrow.
+
+    **June 18th 2022** - Module_02 is pretty heavy on the theory. Had to do a little further research on ad hoc polymorphism to understand the third exercise. All that's left is to implement the fuckton of operator overloads it asks for, and then test everything.
