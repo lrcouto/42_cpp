@@ -6,39 +6,38 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 02:06:58 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/17 21:59:28 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/18 19:45:50 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Fixed.hpp"
 # include <iostream>
 
-int	main(void)
+int main(void)
 {
-	Fixed a;
-	Fixed const b(10);
-	Fixed const c(42.42f);
-	Fixed const d(b);
+	Fixed	a;
+	Fixed const b(Fixed(5.05f) * Fixed(2));
 
-	std::cout << "\n--------------------\n" << std::endl;
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
 
-	a = Fixed(1234.4321f);
+	std::cout << b << std::endl;
 
-	std::cout << "\n--------------------\n" << std::endl;
+	std::cout << Fixed::max(a, b) << std::endl;
+	std::cout << Fixed::min(a, b) << std::endl;
 
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
+	Fixed c(3);
+	Fixed d(0.5f);
+	Fixed e((c / d));
 
-	std::cout << "\n--------------------\n" << std::endl;
+	std::cout << e << std::endl;
+	std::cout << --e << std::endl;
+	std::cout << e << std::endl;
+	std::cout << e-- << std::endl;
+	std::cout << e << std::endl;
 
-	std::cout << "a is " << a.toInt() << " as Integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as Integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as Integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as Integer" << std::endl;
-
-	std::cout << "\n--------------------\n" << std::endl;
-	
-	return (0);
+	return 0;
 }

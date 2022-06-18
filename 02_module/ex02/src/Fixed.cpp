@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 02:06:18 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/17 23:28:46 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/18 19:45:17 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,41 +17,35 @@
 Fixed::Fixed(void)
 {
     this->m_rawBits = 0;
-    std::cout << "Constructor called for " << this << std::endl;
     return ;
 }
 
 Fixed::Fixed(int const value)
 {
     this->m_rawBits = value * 1 << this->m_fractionalBits;
-    std::cout << "Integer constructor called for " << this << std::endl;
     return ;
 }
 
 Fixed::Fixed(float const value)
 {
     this->m_rawBits = roundf(value * (1 << this->m_fractionalBits));
-    std::cout << "Float constructor called for " << this << std::endl;
     return ;
 }
 
 Fixed::~Fixed(void)
 {
-    std::cout << "Destructor called for " << this << std::endl;
     return ;
 }
 
 Fixed::Fixed(Fixed const &instancedObject)
 {
 	*this = instancedObject;
-    std::cout << "Copy constructor called for " << this << std::endl;
 	return ;
 }
 
 Fixed &Fixed::operator=(Fixed const &rightHandSide)
 {
 	this->m_rawBits = rightHandSide.getRawBits();
-    std::cout << "Copy assignment operator overload called for " << this << std::endl;
 	return (*this);
 }
 
@@ -61,105 +55,121 @@ std::ostream &operator<<(std::ostream &outputFile, Fixed const &value)
 	return outputFile;
 }
 
-bool operator>(Fixed const &rightHandSide) const;
+bool Fixed::operator>(Fixed const &rightHandSide) const
 {
-
+	return (this->getRawBits() > rightHandSide.getRawBits());
 }
 
-bool operator<(Fixed const &rightHandSide) const;
+bool Fixed::operator<(Fixed const &rightHandSide) const
 {
-
+	return (this->getRawBits() < rightHandSide.getRawBits());
 }
 
-bool operator>=(Fixed const &rightHandSide) const;
+bool Fixed::operator>=(Fixed const &rightHandSide) const
 {
-
+	return (this->getRawBits() >= rightHandSide.getRawBits());
 }
 
-bool operator<=(Fixed const &rightHandSide) const;
+bool Fixed::operator<=(Fixed const &rightHandSide) const
 {
-
+	return (this->getRawBits() <= rightHandSide.getRawBits());
 }
 
-bool operator==(Fixed const &rightHandSide) const;
+bool Fixed::operator==(Fixed const &rightHandSide) const
 {
-
+	return (this->getRawBits() == rightHandSide.getRawBits());
 }
 
-bool operator!=(Fixed const &rightHandSide) const;
+bool Fixed::operator!=(Fixed const &rightHandSide) const
 {
-
+	return (this->getRawBits() != rightHandSide.getRawBits());
 }
 
-Fixed operator+(Fixed const &rightHandSide);
+Fixed Fixed::operator+(Fixed const &rightHandSide)
 {
-
+	this->setRawBits(this->getRawBits() + rightHandSide.getRawBits());
+	return (*this);
 }
 
-Fixed operator-(Fixed const &rightHandSide);
+Fixed Fixed::operator-(Fixed const &rightHandSide)
 {
-
+	this->setRawBits(this->getRawBits() - rightHandSide.getRawBits());
+	return (*this);
 }
 
-Fixed operator*(Fixed const &rightHandSide);
+Fixed Fixed::operator*(Fixed const &rightHandSide)
 {
-
+	this->setRawBits(((long)this->getRawBits() * (long)rightHandSide.getRawBits()) / (1 << this->m_fractionalBits));
+	return (*this);
 }
 
-Fixed operator/(Fixed const &rightHandSide);
+Fixed Fixed::operator/(Fixed const &rightHandSide)
 {
-
+	this->setRawBits(((long)this->getRawBits() * (1 << this->m_fractionalBits)) / (long)rightHandSide.getRawBits());
+	return (*this);
 }
 
-Fixed operator++(int);
+Fixed Fixed::operator++(int)
 {
-
+    Fixed temp = *this;
+    this->m_rawBits++;
+	return (temp);
 }
 
-Fixed operator++(void);
+Fixed Fixed::operator++(void)
 {
-
+	this->m_rawBits++;
+	return (*this);
 }
 
-Fixed operator--(int);
+Fixed Fixed::operator--(int)
 {
-
+    Fixed temp = *this;
+    this->m_rawBits--;
+    return (temp);
 }
 
-Fixed operator--(void);
+Fixed Fixed::operator--(void)
 {
-
+	this->m_rawBits--;
+	return (*this);
 }
 
-static Fixed const &min(Fixed const &first, Fixed const &second);
+Fixed const &Fixed::min(Fixed const &first, Fixed const &second)
 {
-
+	if (first > second)
+		return (second);
+	return (first);
 }
 
-static Fixed const &max(Fixed const &first, Fixed const &first);
+Fixed const &Fixed::max(Fixed const &first, Fixed const &second)
 {
-
+	if (first > second)
+		return (first);
+	return (second);
 }
 
-static Fixed &min(Fixed &first, Fixed &second);
+Fixed &Fixed::min(Fixed &first, Fixed &second)
 {
-
+	if (first > second)
+		return (second);
+	return (first);
 }
 
-static Fixed &max(Fixed &first, Fixed &second);
+Fixed &Fixed::max(Fixed &first, Fixed &second)
 {
-
+	if (first > second)
+		return (first);
+	return (second);
 }
 
 void	Fixed::setRawBits(int const rawBits)
 {
-    std::cout << "setRawBits called for " << this << std::endl;
     this->m_rawBits = rawBits;
 }
 
 int		Fixed::getRawBits(void) const
 {
-    std::cout << "getRawBits called for " << this << std::endl;
     return (this->m_rawBits);
 }
 

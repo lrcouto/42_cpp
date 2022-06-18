@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 01:01:30 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/17 23:18:37 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/18 19:33:10 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class Fixed
 		Fixed operator--(void);
 
 		static Fixed const &min(Fixed const &first, Fixed const &second);
-		static Fixed const &max(Fixed const &first, Fixed const &first);
+		static Fixed const &max(Fixed const &first, Fixed const &second);
 		static Fixed &min(Fixed &first, Fixed &second);
 		static Fixed &max(Fixed &first, Fixed &second);
 
