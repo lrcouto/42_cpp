@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 01:01:30 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/17 02:54:36 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/17 21:33:44 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@ class Fixed
 
 	public:
 		Fixed(void);
-		Fixed(int const);
-		Fixed(float const);
+		Fixed(int const value);
+		Fixed(float const value);
 		~Fixed(void);
 		Fixed(Fixed const &instancedObject);
 		Fixed &operator=(Fixed const &rightHandSide);
-		std::ostream &operator<<(std::ostream &outputFile);
-
+		
 		void	setRawBits(int const rawBits);
 		int		getRawBits(void) const;
 		float	toFloat(void) const;
 		int		toInt(void) const;
-
 };
+
+std::ostream &operator<<(std::ostream &outputFile, Fixed const &value);
 
 #endif
 
