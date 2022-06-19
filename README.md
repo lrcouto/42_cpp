@@ -18,3 +18,5 @@ Repository for the code for the 42 São Paulo C++ introduction to OOP.
   **June 18th 2022** - Module_02 is pretty heavy on the theory. Had to do a little further research on ad hoc polymorphism to understand the third exercise. All that's left is to implement the fuckton of operator overloads it asks for, and then test everything.
 
   - Finished it. Brain explosion moment when I realized how post-increments actually work.
+
+  **June 19th 2022** - While waiting for evaluations on module_02, started module_03. Cool, I'm a big Borderlands fan, but this language's verbosity is starting to annoy me. Completed ex00. It's 4am.
