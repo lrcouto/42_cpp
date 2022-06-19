@@ -6,11 +6,11 @@
 #    By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/15 22:30:05 by lcouto            #+#    #+#              #
-#    Updated: 2022/06/19 20:34:07 by lcouto           ###   ########.fr        #
+#    Updated: 2022/06/19 20:34:26 by lcouto           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ScavTrap
+NAME = FragTrap
 
 INCLUDES = -I include
 
@@ -25,7 +25,7 @@ DIR_BUILD	=	build
 
 SRCS		=	$(DIR_SRCS)/main.cpp \
 				$(DIR_SRCS)/Claptrap.cpp \
-				$(DIR_SRCS)/Scavtrap.cpp \
+				$(DIR_SRCS)/Fragtrap.cpp \
 
 BUILD		=	$(subst $(DIR_SRCS), $(DIR_BUILD), $(SRCS:.cpp=.o))
 

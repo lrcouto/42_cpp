@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 00:03:52 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/19 03:55:55 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/19 20:34:30 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
         this->m_hitPoints += amount;
     }
     else if (this->m_energyPoints <= 0 || this->m_hitPoints <= 0)
-        std::cout << this->getName() << " seems to be inactive. Maybe kick it to se if it wakes up?" << std::endl;
+        std::cout << this->getName() << " seems to be inactive. Maybe kick it to see if it wakes up?" << std::endl;
     return ;
 }
 

@@ -1,55 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Scavtrap.cpp                                       :+:      :+:    :+:   */
+/*   Fragtrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 18:58:18 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/19 20:10:19 by lcouto           ###   ########.fr       */
+/*   Created: 2022/06/19 20:14:24 by lcouto            #+#    #+#             */
+/*   Updated: 2022/06/19 20:34:45 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Scavtrap.hpp"
+# include "Fragtrap.hpp"
 
-ScavTrap::ScavTrap(void)
+FragTrap::FragTrap(void)
 {
-    this->m_name = "SC4V-TP";
-    this->m_attackDamage = 20;
-    this->m_energyPoints = 50;
+    this->m_name = "FR4G-TP";
+    this->m_attackDamage = 30;
+    this->m_energyPoints = 100;
     this->m_hitPoints = 100;
-    std::cout << "Halt, moon citizen! I've been chosen to stand out here! Designation: SC4V-TP." << std::endl;
+    std::cout << "You want me? To join you? I am SO excited. We will be best friends. Designation: FR4G-TP." << std::endl;
     return ;
 }
 
-ScavTrap::ScavTrap(std::string name)
+FragTrap::FragTrap(std::string name)
 {
     this->m_name = name;
-    this->m_attackDamage = 20;
-    this->m_energyPoints = 50;
+    this->m_attackDamage = 30;
+    this->m_energyPoints = 100;
     this->m_hitPoints = 100;
-    std::cout << "Halt, moon citizen! I've been chosen to stand out here! Designation: " << this->getName() << std::endl;
+    std::cout << "You want me? To join you? I am SO excited. We will be best friends. Designation: " << this->getName() << std::endl;
     return ;
 }
 
-ScavTrap::~ScavTrap(void)
+FragTrap::~FragTrap(void)
 {
-    std::cout << "My servos... are seizing..." << std::endl;
+    std::cout << "I'm afraid. My mind is going. I can feel it. My mind is going! There's no question about it. I can feel it. I'm a... fraid." << std::endl;
     std::cout << this->getName() << " has been destroyed in a glorious explosion." << std::endl;
     return ;
 }
-ScavTrap::ScavTrap(ScavTrap const &instancedObject)
+FragTrap::FragTrap(FragTrap const &instancedObject)
 {
 	*this = instancedObject;
-    std::cout << "Hey! Over here! I'm over heere!" << std::endl;
+    std::cout << "F to the R to the 4 to the G to the WHAAT!" << std::endl;
 	return ;
 }
 
-void	ScavTrap::attack(const std::string& target)
+void	FragTrap::attack(const std::string& target)
 {
     if (this->m_energyPoints > 0 && this->m_hitPoints > 0)
     {
-        std::cout << "Ha ha ha! Fall before your robot overlord!" << std::endl;
+        std::cout << "Is that what people look like inside?" << std::endl;
         std::cout << this->getName() << " attacks " << target << " for " << this->getAttackDamage() << " damage." << std::endl;
         this->m_energyPoints -= 1;
     }
@@ -58,11 +58,11 @@ void	ScavTrap::attack(const std::string& target)
     return ;
 }
 
-void	ScavTrap::takeDamage(unsigned int amount)
+void	FragTrap::takeDamage(unsigned int amount)
 {
     if (this->m_energyPoints > 0 && this->m_hitPoints > 0)
     {
-        std::cout << "Please don't shoot me, please don't shoot me, please don't shoot me!" << std::endl;
+        std::cout << "I'm too pretty to die!" << std::endl;
         std::cout << this->getName() << " loses " << amount << " hit points" << std::endl;
         this->m_hitPoints -= amount;
     }
@@ -75,11 +75,11 @@ void	ScavTrap::takeDamage(unsigned int amount)
     return ;
 }
 
-void	ScavTrap::beRepaired(unsigned int amount)
+void	FragTrap::beRepaired(unsigned int amount)
 {
     if (this->m_energyPoints > 0 && this->m_hitPoints > 0)
     {
-        std::cout << "Good as new, I think. Am I leaking?" << std::endl;
+        std::cout << "You can't keep a good 'bot down!" << std::endl;
         std::cout << this->getName() << " recovers " << amount << " hit points." << std::endl;
         this->m_energyPoints -= 1;
         this->m_hitPoints += amount;
@@ -89,12 +89,12 @@ void	ScavTrap::beRepaired(unsigned int amount)
     return ;
 }
 
-void    ScavTrap::guardGate(void)
+void    FragTrap::highFiveGuys(void)
 {
     if (this->m_energyPoints > 0 && this->m_hitPoints > 0)
     {
-        std::cout << "Guarding gates is FUN!" << std::endl;
-        std::cout << this->getName() << " is in Gate Keeper mode" << std::endl;
+        std::cout << "HIGH FIVES GUYS!!!" << std::endl;
+        std::cout << this->getName() << " extends his arm, expectantly waiting for a high five." << std::endl;
         this->m_energyPoints -= 1;
     }
     else
