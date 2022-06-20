@@ -20,3 +20,5 @@ Repository for the code for the 42 São Paulo C++ introduction to OOP.
   - Finished it. Brain explosion moment when I realized how post-increments actually work.
 
   **June 19th 2022** - While waiting for evaluations on module_02, started module_03. Cool, I'm a big Borderlands fan, but this language's verbosity is starting to annoy me. Completed ex00. It's 4am.
+
+  **June 20th 2022** - Turned in module_02 and finished module_03, that I will turn in tomorrow. Inheritance is cursed and that Diamond Problem was concocted by the devil himself. It works well enough now, though.

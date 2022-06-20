@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 20:11:33 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/19 20:12:15 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/19 23:10:47 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,8 @@ class FragTrap : public ClapTrap
 		FragTrap(std::string name);
 		~FragTrap(void);
 		FragTrap(FragTrap const &instancedObject);
+		FragTrap &operator=(FragTrap const &rightHandSide);
 
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
         void    highFiveGuys(void);
 };
 

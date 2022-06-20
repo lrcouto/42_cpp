@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 18:52:19 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/19 23:08:45 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/19 23:16:15 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 # include "Claptrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : public virtual ClapTrap
 {
 	public:
 		ScavTrap(void);
