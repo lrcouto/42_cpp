@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 23:20:02 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/22 19:07:53 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/22 19:26:39 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ std::string Dog::getIdea(int index) const
         return (this->brain->ideas[index]);
 }
 
-void		Dogs::getBrainAddress(void) const
+void		Dog::getBrainAddress(void) const
 {
 	std::cout << &this->brain << '\n';
 }

@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 00:27:43 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/22 19:20:42 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/22 19:58:08 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 Brain::Brain(void)
 {
-    srand((unsigned int)time(NULL));
+    std::srand(time(NULL));
     for (int i = 0; i < 100; i++)
     { 
         std::ostringstream idea;
