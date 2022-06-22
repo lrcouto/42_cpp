@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 00:12:27 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/22 02:40:26 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/22 10:45:48 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Brain
 {
     public:
-        static std::string ideas[100];
+        std::string ideas[100];
 
         Brain(void);
         ~Brain(void);

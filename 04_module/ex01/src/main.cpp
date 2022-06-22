@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 19:55:08 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/22 03:08:48 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/22 13:27:42 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,16 @@
 int		main(void)
 {
 	const Animal* cat = new Cat();
-	usleep(10000);
-	const Animal* copyCat(cat);
-	usleep(10000);
+	usleep(50000);
 	const Animal* cat2 = new Cat();
+	usleep(50000);
+	Cat cat3;
+	Cat cat4(cat3);
 
-	std::cout << cat->getIdea(15) << '\n';
-	std::cout << copyCat->getIdea(15) << '\n';
-	std::cout << cat2->getIdea(15) << '\n';
+	cat->getBrainAddress();
+	cat2->getBrainAddress();
+	cat3.getBrainAddress();
+	cat4.getBrainAddress();
 
 	delete cat;
 	delete cat2;
