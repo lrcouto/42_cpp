@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 19:55:18 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/21 01:42:19 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/22 20:49:39 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ std::string WrongAnimal::getType(void) const
 
 void        WrongAnimal::makeSound(void) const
 {
-    std::cout << "K̸I̴L̵L̵ ̴M̸E̵ ̷P̸L̸E̷A̷S̵E̶ ̴I̵ ̵A̶M̶ ̴W̴R̷O̴N̷G̴" << '\n';
+    std::cout << "\033[0;31mK̸I̴L̵L̵ ̴M̸E̵ ̷P̸L̸E̷A̷S̵E̶ ̴I̵ ̵A̶M̶ ̴W̴R̷O̴N̷G̴\033[0m" << '\n';
     return ;
 }

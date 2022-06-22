@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 00:27:43 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/22 19:58:08 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/22 20:19:05 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 # include <cstdlib>
 # include <ctime>
 # include <sstream>
+# include <unistd.h>
 
 Brain::Brain(void)
 {
+    usleep(1000000);
     std::srand(time(NULL));
     for (int i = 0; i < 100; i++)
     { 
         std::ostringstream idea;
-        idea << rand() % 1000;
+        idea << rand() % 10000;
         this->ideas[i] = idea.str();
     }
     std::cout << "\033[0;35mBrain constructor called\033[0m" << '\n';

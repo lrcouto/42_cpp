@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 23:17:03 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/22 11:40:16 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/22 20:24:03 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Cat : public Animal
 		Brain* brain;
     public:
 		Cat(void);
-		~Cat(void);
+		virtual ~Cat(void);
 		Cat(Cat const &instancedObject);
 		Cat &operator=(Cat const &rightHandSide);
     

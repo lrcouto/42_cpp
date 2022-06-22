@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 19:55:18 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/21 01:38:06 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/22 20:39:12 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,27 @@
 
 Animal::Animal(void)
 {
+	std::cout << "Animal constructor called" << '\n';
 	return ;
 }
 
 Animal::~Animal(void)
 {
+	std::cout << "Animal destructor called" << '\n';
 	return ;
 }
 
 Animal::Animal(Animal const &instancedObject)
 {
 	*this = instancedObject;
+	std::cout << "Animal copy constructor called" << '\n';
 	return ;
 }
 
 Animal &Animal::operator=(Animal const &rightHandSide)
 {
 	this->type = rightHandSide.getType();
+	std::cout << "Animal = operator overload called" << '\n';
 	return (*this);
 }
 
