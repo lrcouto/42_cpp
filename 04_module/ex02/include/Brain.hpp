@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Scavtrap.hpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 18:52:19 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/24 19:59:46 by lcouto           ###   ########.fr       */
+/*   Created: 2022/06/22 00:12:27 by lcouto            #+#    #+#             */
+/*   Updated: 2022/06/22 10:45:48 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+# ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
-# include "Claptrap.hpp"
 
-class ScavTrap : public ClapTrap
+class Brain
 {
-	public:
-		ScavTrap(void);
-		ScavTrap(std::string name);
-		~ScavTrap(void);
-		ScavTrap(ScavTrap const &instancedObject);
-        ScavTrap &operator=(ScavTrap const &rightHandSide);
-        
-		void	attack(const std::string& target);
-        void    guardGate(void);
+    public:
+        std::string ideas[100];
+
+        Brain(void);
+        ~Brain(void);
+		Brain(Brain const &instancedObject);
+		Brain &operator=(Brain const &rightHandSide);
 };
 
 #endif

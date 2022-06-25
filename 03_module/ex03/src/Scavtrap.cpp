@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 18:58:18 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/19 23:09:46 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/24 20:01:55 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,19 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &rightHandSide)
 	this->m_energyPoints = rightHandSide.getHitPoints();
 	this->m_attackDamage = rightHandSide.getAttackDamage();
 	return (*this);
+}
+
+void	ScavTrap::attack(const std::string& target)
+{
+    if (this->m_energyPoints > 0 && this->m_hitPoints > 0)
+    {
+        std::cout << "Can I shoot something now? Or climb some stairs? SOMETHING exciting?" << std::endl;
+        std::cout << this->getName() << " attacks " << target << " for " << this->getAttackDamage() << " damage." << std::endl;
+        this->m_energyPoints -= 1;
+    }
+    else
+        std::cout << this->getName() << " seems to be inactive." << std::endl;
+    return ;
 }
 
 void    ScavTrap::guardGate(void)

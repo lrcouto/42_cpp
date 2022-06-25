@@ -24,3 +24,5 @@ Repository for the code for the 42 São Paulo C++ introduction to OOP.
   **June 20th 2022** - Turned in module_02 and finished module_03, that I will turn in tomorrow. Inheritance is cursed and that Diamond Problem was concocted by the devil himself. It works well enough now, though.
 
   **June 22th 2022** - Uploaded some of module_04 yesterday but didn't log. I am SO FUCKING TILTED with this module. I can't get anything to work.
+
+  **June 24th 2022** - Finished and turned in module_04, started module_05. I am very tired and can't concentrate, so I couldn't do any significant progress today, which upsets me. I fixed a little mistake on module_03.
