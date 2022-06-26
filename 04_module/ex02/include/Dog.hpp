@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Scavtrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/19 18:52:19 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/24 19:59:46 by lcouto           ###   ########.fr       */
+/*   Created: 2022/06/20 22:37:45 by lcouto            #+#    #+#             */
+/*   Updated: 2022/06/22 20:24:08 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+# ifndef DOG_HPP
+# define DOG_HPP
 
+# include "Animal.hpp"
+# include "Brain.hpp"
 # include <iostream>
-# include "Claptrap.hpp"
 
-class ScavTrap : public ClapTrap
+class Dog : public Animal
 {
-	public:
-		ScavTrap(void);
-		ScavTrap(std::string name);
-		~ScavTrap(void);
-		ScavTrap(ScavTrap const &instancedObject);
-        ScavTrap &operator=(ScavTrap const &rightHandSide);
-        
-		void	attack(const std::string& target);
-        void    guardGate(void);
+	private:
+		Brain* brain;
+    public:
+		Dog(void);
+		virtual ~Dog(void);
+		Dog(Dog const &instancedObject);
+		Dog &operator=(Dog const &rightHandSide);
+    
+        void        makeSound(void) const;
+		std::string getIdea(int index) const;
+		void		getBrainAddress(void) const;
 };
 
 #endif

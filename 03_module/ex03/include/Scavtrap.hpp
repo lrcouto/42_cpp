@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 18:52:19 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/19 23:16:15 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/24 20:02:23 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class ScavTrap : public virtual ClapTrap
 		ScavTrap(ScavTrap const &instancedObject);
         ScavTrap &operator=(ScavTrap const &rightHandSide);
         
+		void	attack(const std::string& target);
         void    guardGate(void);
 };
 
