@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:56:15 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/25 01:54:32 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/25 23:09:37 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Bureaucrat
 		int			getGrade(void) const;
 		void		incrementGrade(void);
 		void		decrementGrade(void);
+        void	    checkGrade(void);
 
         class GradeTooHighException : public std::exception
         {
