@@ -26,3 +26,5 @@ Repository for the code for the 42 São Paulo C++ introduction to OOP.
   **June 22th 2022** - Uploaded some of module_04 yesterday but didn't log. I am SO FUCKING TILTED with this module. I can't get anything to work.
 
   **June 24th 2022** - Finished and turned in module_04, started module_05. I am very tired and can't concentrate, so I couldn't do any significant progress today, which upsets me. I fixed a little mistake on module_03.
+
+  **June 27th 2022** - Uploading ex00 and ex00. This list is indeed bureaucratic. And boring. Lots of grunt work writing the classes and exceptions. Ex02 seems even worse but ex03 seems simpler. We'll see.

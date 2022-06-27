@@ -6,11 +6,12 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:01:05 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/26 21:04:23 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/27 01:43:06 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Bureaucrat.hpp"
+# include "Form.hpp"
 
 Bureaucrat::Bureaucrat(void) : m_name("Frederico Menezes de Sousa Jr."), m_grade(75)
 {
@@ -74,4 +75,21 @@ void	Bureaucrat::checkGrade(void)
 		throw Bureaucrat::GradeTooHighException();
 	if (this->m_grade > 150)
 		throw Bureaucrat::GradeTooLowException();
+}
+
+void        Bureaucrat::signForm(Form &formToSign)
+{
+    try 
+    {
+		formToSign.beSigned(*this);
+		std::cout << this->m_name << " wants to sign " << formToSign.getName() << std::endl;
+	} 
+	catch (const Form::RequiredGradeToSignTooLowException& e)
+    {
+		std::cout << "\033[1;31m" << this->m_name << "'s grade is too low to sign " << formToSign.getName() << "\033[0m" << std::endl;
+	}
+	catch (const Form::FormAlreadySignedException& e)
+    {
+		std::cout << "\033[1;31m" << formToSign.getName() << " has already been signed" << "\033[0m" << std::endl;
+	}
 }
