@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 02:35:00 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/29 02:45:00 by lcouto           ###   ########.fr       */
+/*   Created: 2022/06/29 03:16:52 by lcouto            #+#    #+#             */
+/*   Updated: 2022/06/29 03:18:41 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
 # include <fstream>
-# include "ShrubberyCreationForm.hpp"
+# include "PresidentialPardonForm.hpp"
 # include "Form.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : Form("Shrubbery Creation Form", 137, 145)
+PresidentialPardonForm::PresidentialPardonForm(void) : Form("Presidential Pardon Form", 5, 25)
 {
     this->setTarget("HOME");
     return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) :  Form("Shrubbery Creation Form", 137, 145) 
+PresidentialPardonForm::PresidentialPardonForm(std::string target) :  Form("Presidential Pardon Form", 5, 25) 
 {
     this->setTarget(target);
     return ;
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm(void)
+PresidentialPardonForm::~PresidentialPardonForm(void)
 {
     return ;
 }
 
-ShrubberyCreationForm   &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &rightHandSide)
+PresidentialPardonForm   &PresidentialPardonForm::operator=(PresidentialPardonForm const &rightHandSide)
 {
     this->m_isFormSigned = rightHandSide.getSignedStatus();
     this->m_target = rightHandSide.getTarget();
     return (*this);
 }
 
-std::ostream    &operator<<(std::ostream &output, ShrubberyCreationForm const &instance)
+std::ostream    &operator<<(std::ostream &output, PresidentialPardonForm const &instance)
 {
     std::string signedStatus = (instance.getSignedStatus() == true) ? "Yes" : "No";
     return (output << "Form name: " << instance.getName() << '\n'
@@ -49,16 +49,11 @@ std::ostream    &operator<<(std::ostream &output, ShrubberyCreationForm const &i
             << "Is the form signed?: " << signedStatus << "\n");
 }
 
-bool    ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+bool    PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
     if (executor.getGrade() <= this->getGradeToExecute())
     {
-        std::string fileName = this->getTarget() + "_shrubbery";
-        std::ofstream outputFile(fileName.c_str(), std::ios::out | std::ios::trunc);
-
-        std::string shrubs = "               ,@@@@@@@,\n       ,,,.   ,@@@@@@/@@,  .oo8888o.\n    ,&%%&%&&%,@@@@@/@@@@@@,8888/88/8o\n   ,%&/%&&%&&%,@@@/@@@/@@@88/88888/88'\n   %&&%&%&/%&&%@@/@@/ /@@@88888/88888'\n   %&&%/ %&%%&&@@/ V /@@' `88/8 `/88'\n   `&%/ ` /%&'    |.|        / '|8'\n       |o|        | |         | |\n       |.|        | |         | |\n    \\/ ._///_/__/  ,/_//__\\/.  /_//__/_\n";
-        outputFile << shrubs << std::endl;
-        outputFile.close();
+        std::cout << this->getTarget() << ", you have been pardoned by Zaphod Beeblebrox." << std::endl;
         return (true);
     }
     else

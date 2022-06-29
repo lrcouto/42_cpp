@@ -1,45 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 02:35:00 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/29 02:45:00 by lcouto           ###   ########.fr       */
+/*   Created: 2022/06/29 02:56:50 by lcouto            #+#    #+#             */
+/*   Updated: 2022/06/29 03:13:39 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
 # include <fstream>
-# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
 # include "Form.hpp"
+# include <cstdlib>
+# include <ctime>
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : Form("Shrubbery Creation Form", 137, 145)
+RobotomyRequestForm::RobotomyRequestForm(void) : Form("Robotomy Request Form", 45, 72)
 {
     this->setTarget("HOME");
     return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) :  Form("Shrubbery Creation Form", 137, 145) 
+RobotomyRequestForm::RobotomyRequestForm(std::string target) :  Form("Robotomy Request Form", 45, 72) 
 {
     this->setTarget(target);
     return ;
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm(void)
+RobotomyRequestForm::~RobotomyRequestForm(void)
 {
     return ;
 }
 
-ShrubberyCreationForm   &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &rightHandSide)
+RobotomyRequestForm   &RobotomyRequestForm::operator=(RobotomyRequestForm const &rightHandSide)
 {
     this->m_isFormSigned = rightHandSide.getSignedStatus();
     this->m_target = rightHandSide.getTarget();
     return (*this);
 }
 
-std::ostream    &operator<<(std::ostream &output, ShrubberyCreationForm const &instance)
+std::ostream    &operator<<(std::ostream &output, RobotomyRequestForm const &instance)
 {
     std::string signedStatus = (instance.getSignedStatus() == true) ? "Yes" : "No";
     return (output << "Form name: " << instance.getName() << '\n'
@@ -49,16 +51,16 @@ std::ostream    &operator<<(std::ostream &output, ShrubberyCreationForm const &i
             << "Is the form signed?: " << signedStatus << "\n");
 }
 
-bool    ShrubberyCreationForm::execute(Bureaucrat const &executor) const
+bool    RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
     if (executor.getGrade() <= this->getGradeToExecute())
     {
-        std::string fileName = this->getTarget() + "_shrubbery";
-        std::ofstream outputFile(fileName.c_str(), std::ios::out | std::ios::trunc);
-
-        std::string shrubs = "               ,@@@@@@@,\n       ,,,.   ,@@@@@@/@@,  .oo8888o.\n    ,&%%&%&&%,@@@@@/@@@@@@,8888/88/8o\n   ,%&/%&&%&&%,@@@/@@@/@@@88/88888/88'\n   %&&%&%&/%&&%@@/@@/ /@@@88888/88888'\n   %&&%/ %&%%&&@@/ V /@@' `88/8 `/88'\n   `&%/ ` /%&'    |.|        / '|8'\n       |o|        | |         | |\n       |.|        | |         | |\n    \\/ ._///_/__/  ,/_//__\\/.  /_//__/_\n";
-        outputFile << shrubs << std::endl;
-        outputFile.close();
+        std::srand(time(NULL));
+        std::cout << "*HORRIFYING DRILLING NOISES*" << std::endl;
+        if((rand() % 2) == 1)
+            std::cout << this->getTarget() << " has been successfully robotomized!" << std::endl;
+        else
+            std::cout << this->getTarget() << "'s robotomy has failed. Please contact our corporate life insurance provider." << std::endl;
         return (true);
     }
     else

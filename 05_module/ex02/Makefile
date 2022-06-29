@@ -6,7 +6,7 @@
 #    By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/15 22:30:05 by lcouto            #+#    #+#              #
-#    Updated: 2022/06/29 00:01:53 by lcouto           ###   ########.fr        #
+#    Updated: 2022/06/29 03:27:27 by lcouto           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ SRCS		=	$(DIR_SRCS)/main.cpp \
 				$(DIR_SRCS)/Bureaucrat.cpp \
 				$(DIR_SRCS)/Form.cpp \
 				$(DIR_SRCS)/ShrubberyCreationForm.cpp \
+				$(DIR_SRCS)/RobotomyRequestForm.cpp \
+				$(DIR_SRCS)/PresidentialPardonForm.cpp \
 
 BUILD		=	$(subst $(DIR_SRCS), $(DIR_BUILD), $(SRCS:.cpp=.o))
 
@@ -58,6 +60,7 @@ fclean:	clean
 		@$(RM) $(NAME)
 		@$(RM) $(BUILD)
 		@$(RM) -r $(DIR_BUILD)
+		@$(RM) *_shrubbery
 
 re:		fclean all
 

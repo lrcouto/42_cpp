@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/27 20:46:55 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/29 02:44:32 by lcouto           ###   ########.fr       */
+/*   Created: 2022/06/29 02:50:23 by lcouto            #+#    #+#             */
+/*   Updated: 2022/06/29 03:06:20 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+# ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 # include <iostream>
 # include "Form.hpp"
 
-class ShrubberyCreationForm : public Form
+class RobotomyRequestForm : public Form
 {
     private:
         bool					execute(Bureaucrat const &executor) const;
 
     public:
-        ShrubberyCreationForm(void);
-        ShrubberyCreationForm(std::string target);
-        ~ShrubberyCreationForm(void);
-		ShrubberyCreationForm(ShrubberyCreationForm const& instance);
-		ShrubberyCreationForm	&operator=(ShrubberyCreationForm const &rightHandSide);
+        RobotomyRequestForm(void);
+        RobotomyRequestForm(std::string target);
+        ~RobotomyRequestForm(void);
+		RobotomyRequestForm(RobotomyRequestForm const& instance);
+		RobotomyRequestForm	&operator=(RobotomyRequestForm const &rightHandSide);
 };
 
-std::ostream &operator<<(std::ostream &output, ShrubberyCreationForm const &instance);
+std::ostream &operator<<(std::ostream &output, RobotomyRequestForm const &instance);
 
 #endif
