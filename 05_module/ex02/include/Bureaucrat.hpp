@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:56:15 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/27 00:16:45 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/29 00:12:46 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Bureaucrat
 		void		decrementGrade(void);
         void	    checkGrade(void);
         void        signForm(Form &formToSign);
+        void        executeForm(Form const &form);
 
 
         class GradeTooHighException : public std::exception

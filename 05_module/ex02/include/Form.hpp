@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 01:42:06 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/28 02:32:52 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/29 01:23:50 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Form
         int const           m_gradeRequiredToExecute;
         int const           m_gradeRequiredToSign;
         bool                m_isFormSigned;
+        std::string         m_target;
 
     public:
         Form(void);
@@ -39,7 +40,9 @@ class Form
 		int			    getGradeToExecute(void) const;
 		int			    getSignedStatus(void) const;
 		void		    beSigned(Bureaucrat signatory);
-        virtual void    execute(Bureaucrat const &executor) const = 0;
+        std::string     getTarget(void) const;
+        void            setTarget(std::string target);
+        virtual bool    execute(Bureaucrat const &executor) const = 0;
     
         class GradeTooHighException : public std::exception
         {
@@ -74,6 +77,15 @@ class Form
                 const char* what() const throw()
                 {
                     return ("\033[1;31mException: this form has already been signed\033[0m");
+                }
+        };
+
+        class RequiredGradeToExecuteTooLowException : public std::exception
+        {
+            public:
+                const char* what() const throw()
+                {
+                    return ("\033[1;31mException: Bureaucrat grade is too low to execute this form\033[0m");
                 }
         };
 };

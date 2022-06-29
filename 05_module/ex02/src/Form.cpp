@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/26 18:04:30 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/28 03:29:35 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/29 01:23:31 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ Form::Form(Form const &instancedObject) :   m_name(instancedObject.getName()),
 Form &Form::operator=(Form const &rightHandSide) 
 {
     this->m_isFormSigned = rightHandSide.getSignedStatus();
+    this->m_target = rightHandSide.getTarget();
     return (*this);
 }
 
@@ -82,6 +83,17 @@ int			Form::getGradeToExecute(void) const
 int			Form::getSignedStatus(void) const
 {
     return (this->m_isFormSigned);
+}
+
+std::string     Form::getTarget(void) const
+{
+    return (this->m_target);
+}
+
+void            Form::setTarget(std::string target)
+{
+    this->m_target = target;
+    return ;
 }
 
 void		Form::beSigned(Bureaucrat signatory)

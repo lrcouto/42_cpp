@@ -6,28 +6,24 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 02:35:00 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/28 03:29:30 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/29 01:48:06 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# include <iostream>
+# include <fstream>
 # include "ShrubberyCreationForm.hpp"
 # include "Form.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) :    m_name("Form 00A")
-                                                        m_gradeRequiredToExecute(137),
-                                                        m_gradeRequiredToSign(145),
-                                                        m_isFormSigned(false),
-                                                        m_target("Home")
+ShrubberyCreationForm::ShrubberyCreationForm(void) : Form("Shrubbery Creation Form", 137, 145)
 {
+    this->setTarget("HOME");
     return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name, std::string target) :    m_name(name)
-                                                                                        m_gradeRequiredToExecute(137),
-                                                                                        m_gradeRequiredToSign(145),
-                                                                                        m_isFormSigned(false),
-                                                                                        m_target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string name, std::string target) :  Form(name, 137, 145) 
 {
+    this->setTarget(target);
     return ;
 }
 
@@ -36,17 +32,10 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
     return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const& instancedObject) :    m_name(instancedObject.getName()),
-                                                                                                m_gradeRequiredToExecute(instancedObject.getGradeToExecute()),
-                                                                                                m_gradeRequiredToSign(instancedObject.getGradeToSign())
-                                                                                                m_target(instancedObject.getTarget())
-{
-    *this = instancedObject;
-}
-
 ShrubberyCreationForm   &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &rightHandSide)
 {
     this->m_isFormSigned = rightHandSide.getSignedStatus();
+    this->m_target = rightHandSide.getTarget();
     return (*this);
 }
 
@@ -56,16 +45,23 @@ std::ostream    &operator<<(std::ostream &output, ShrubberyCreationForm const &i
     return (output << "Form name: " << instance.getName() << '\n'
             << "Grade required to sign: " << instance.getGradeToSign() << "\n"
             << "Grade required to execute: " << instance.getGradeToExecute() << "\n"
-            << "Execution target: " << instance.getGradeToExecute() << "\n"
+            << "Execution target: " << instance.getTarget() << "\n"
             << "Is the form signed?: " << signedStatus << "\n");
 }
 
-std::string     ShrubberyCreationForm::getTarget(void);
+bool    ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-    return (this->m_target);
-}
+    if (executor.getGrade() <= this->getGradeToExecute())
+    {
+        std::string fileName = this->getTarget() + "_shrubbery";
+        std::ofstream outputFile(fileName.c_str(), std::ios::out | std::ios::trunc);
 
-bool    ShrubberyCreationForm::execute(Bureaucrat const &executor) const;
-{
-    //TODO: write this
+        std::string shrubs = "               ,@@@@@@@,\n       ,,,.   ,@@@@@@/@@,  .oo8888o.\n    ,&%%&%&&%,@@@@@/@@@@@@,8888/88/8o\n   ,%&/%&&%&&%,@@@/@@@/@@@88/88888/88'\n   %&&%&%&/%&&%@@/@@/ /@@@88888/88888'\n   %&&%/ %&%%&&@@/ V /@@' `88/8 `/88'\n   `&%/ ` /%&'    |.|        / '|8'\n       |o|        | |         | |\n       |.|        | |         | |\n    \\/ ._///_/__/  ,/_//__\\/.  /_//__/_\n";
+        outputFile << shrubs << std::endl;
+        outputFile.close();
+        return (true);
+    }
+    else
+        return (false);
+
 }

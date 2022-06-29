@@ -6,11 +6,11 @@
 #    By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/15 22:30:05 by lcouto            #+#    #+#              #
-#    Updated: 2022/06/27 01:29:32 by lcouto           ###   ########.fr        #
+#    Updated: 2022/06/29 00:01:53 by lcouto           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Forms
+NAME = MoreForms
 
 INCLUDES = -I include
 
@@ -26,6 +26,7 @@ DIR_BUILD	=	build
 SRCS		=	$(DIR_SRCS)/main.cpp \
 				$(DIR_SRCS)/Bureaucrat.cpp \
 				$(DIR_SRCS)/Form.cpp \
+				$(DIR_SRCS)/ShrubberyCreationForm.cpp \
 
 BUILD		=	$(subst $(DIR_SRCS), $(DIR_BUILD), $(SRCS:.cpp=.o))
 

@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:01:05 by lcouto            #+#    #+#             */
-/*   Updated: 2022/06/27 01:43:06 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/06/29 00:11:53 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,13 @@ void        Bureaucrat::signForm(Form &formToSign)
     {
 		std::cout << "\033[1;31m" << formToSign.getName() << " has already been signed" << "\033[0m" << std::endl;
 	}
+}
+
+void    Bureaucrat::executeForm(Form const &form)
+{
+    if (form.execute(*this) == true)
+        std::cout << this->m_name << " executed " << form.getName() << std::endl;
+    else
+        throw Form::RequiredGradeToExecuteTooLowException();
+    return ;
 }
