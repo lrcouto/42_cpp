@@ -32,3 +32,5 @@ Repository for the code for the 42 São Paulo C++ introduction to OOP.
   **June 29th 2022** - Ex02-module05 done. Expecting to finish tomorrow.
 
   **June 30th 2022** - Finished module_05, ready to turn in. This one was a drag. Hoping the last 3 will be a little more interesting.
+
+  **July 05th 2022** - Procrastinated. Bored with the project. Trying to pick up the pace.
