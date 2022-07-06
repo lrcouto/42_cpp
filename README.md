@@ -34,3 +34,5 @@ Repository for the code for the 42 São Paulo C++ introduction to OOP.
   **June 30th 2022** - Finished module_05, ready to turn in. This one was a drag. Hoping the last 3 will be a little more interesting.
 
   **July 05th 2022** - Procrastinated. Bored with the project. Trying to pick up the pace.
+
+  **July 06th 2022** - Bit bored with this. Did some progress. Uploading a version that doesn't compile. 42 São Paulo spent 2 years not giving a single shit about the community building (and sabotaging the community when we tried to build it ourselves) and now both the campus and the discord are dead as fuck. I've been flying solo for a good while. Doesn't feel good, I feel like I have no one to work with me on the projects or to discuss stuff, and it feels pointless to deal with 42SP's idiosyncrasies if I'm not getting the peer to peer learning in return. I'm just working by myself and I guess I will keep doing so in the foreseeable future. This fucking sucks.
