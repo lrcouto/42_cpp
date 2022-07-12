@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 00:06:24 by lcouto            #+#    #+#             */
-/*   Updated: 2022/07/06 03:11:30 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/07/11 22:05:04 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,26 @@ class TypeConversion
         float   m_floatValue;
         double  m_doubleValue;
 
-        bool    m_isChar(char *inputString);
-        bool    m_isInt(char *inputString);
-        bool    m_isFloat(char *inputString);
-        bool    m_isDouble(char *inputString);
+        bool    m_isChar(char const *inputString);
+        bool    m_isInt(char const *inputString);
+        bool    m_isFloat(char const *inputString);
+        bool    m_isDouble(char const *inputString);
 
-        void    m_convertChar(char *inputString);
-        void    m_convertInt(char *inputString);
-        void    m_convertFloat(char *inputString);
-        void    m_convertDouble(char *inputString);
-
-        TypeConversion  getInputString(void) const;
-        TypeConversion  getType(void) const;
-        TypeConversion  getTypeCode(void) const;
+        void    m_convertChar(char const *inputString);
+        void    m_convertInt(char const *inputString);
+        void    m_convertFloat(char const *inputString);
+        void    m_convertDouble(char const *inputString);
 
     public:
         TypeConversion(std::string inputString);
         ~TypeConversion(void);
         TypeConversion(TypeConversion const &instancedObject);
         TypeConversion &operator=(TypeConversion const &rightHandSide);
+
+        std::string  getInputString(void) const;
+        std::string  getType(void) const;
+        int          getTypeCode(void) const;
+        void         identifyType(std::string inputString);
 
         class NotRecognizedException : public std::exception
         {
