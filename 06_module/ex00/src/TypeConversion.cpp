@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 02:13:20 by lcouto            #+#    #+#             */
-/*   Updated: 2022/07/12 01:25:31 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/07/13 01:57:52 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ TypeConversion::TypeConversion(std::string inputString)
     this->m_inputString = inputString;
     this->m_type = "";
     this->m_typeCode = -1;
+    this->identifyType(inputString);
     return ;
 }
 
@@ -42,17 +43,37 @@ TypeConversion &TypeConversion::operator=(TypeConversion const &rightHandSide)
 
 std::ostream &operator<<(std::ostream &output, TypeConversion const &instance)
 {
-    switch (instance.getTypeCode()) 
+    instance.displayConvertedValue();
+    return (output << "Your input was: " << instance.getInputString() << std::endl
+            << "Conversion type is: " << instance.getType() << std::endl);
+}
+
+void    TypeConversion::displayConvertedValue(void) const
+{
+    std::cout << "Your converted value is: ";
+
+    switch (this->getTypeCode()) 
     {
-        case 0: this->m_charValue; break;
-        case 1: this->m_intValue; break;
-        case 2: this->m_floatValue; break;
-        case 3: this->m_doubleValue; break;
+        case 0: 
+            std::cout << this->m_charValue << '\n';
+            break;
+
+        case 1: 
+            std::cout << this->m_intValue << '\n';
+            break;
+
+        case 2:
+            std::cout << this->m_floatValue << '\n';
+            break;
+        
+        case 3: 
+            std::cout << this->m_doubleValue << '\n';
+            break;
+        
+        default:
+            std::cout << "Type not recognized.\n";
     }
 
-    return (output << "Your input was: " << instance.getInputString() << std::endl
-            << "Its type is: " << instance.getType() << std::endl
-            << "Its conversion result is: " <<  << std::endl);
 }
 
 std::string  TypeConversion::getInputString(void) const
@@ -87,7 +108,8 @@ void    TypeConversion::identifyType(std::string inputString)
 
 bool    TypeConversion::m_isChar(char const *inputString)
 {
-    if (inputString[1] == '\0' && (inputString[0] >= 32 && inputString[0] <= 47) && (inputString[0] >= 58 && inputString[0] <= 126))
+    if ((inputString[1] == '\0' && (inputString[0] >= '!' && inputString[0] < '0')) || 
+        (inputString[1] == '\0' && (inputString[0] > '9' && inputString[0] <= '~')))
     {
         this->m_type = "char";
         this->m_typeCode = TYPE_CHAR;
@@ -98,17 +120,61 @@ bool    TypeConversion::m_isChar(char const *inputString)
 
 bool    TypeConversion::m_isInt(char const *inputString)
 {
-    return (false);
+    for (int i = (inputString[0] == '-') ? 1 : 0; inputString[i] != '\0'; i++)
+    {
+        if (inputString[i] < '0' || inputString[i] > '9')
+            return (false);
+    }
+    this->m_type = "integer";
+    this->m_typeCode = TYPE_INT;
+    return (true);
 }
 
 bool    TypeConversion::m_isFloat(char const *inputString)
 {
+    bool point = false;
+
+    for (int i = (inputString[0] == '-') ? 1 : 0; inputString[i] != '\0'; i++)
+    {
+        if ((inputString[i] < '0' || inputString[i] > '9') && inputString[i] != '.' && inputString[i] != 'f')
+            return (false);
+        if (inputString[i] == '.')
+        {
+            if (point == true)
+                return (false);
+            point = true;
+        }
+        if (inputString[i] == 'f')
+        {
+            if (inputString[i + 1] == '\0' && point == true)
+            {
+                this->m_type = "float";
+                this->m_typeCode = TYPE_FLOAT;
+                return (true);
+            }
+        }
+    }
     return (false);
 }
 
 bool    TypeConversion::m_isDouble(char const *inputString)
 {
-    return (false);
+    bool point = false;
+
+    for (int i = (inputString[0] == '-') ? 1 : 0; inputString[i] != '\0'; i++)
+    {
+        if ((inputString[i] < '0' || inputString[i] > '9') && inputString[i] != '.')
+            return (false);
+        if (inputString[i] == '.')
+        {
+            if (point == true)
+                return (false);
+            point = true;
+        }
+    }
+    this->m_type = "double";
+    this->m_typeCode = TYPE_DOUBLE;
+    return (true);
 }
 
 void    TypeConversion::m_convertChar(char const *inputString)
