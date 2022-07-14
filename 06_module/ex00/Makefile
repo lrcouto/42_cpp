@@ -6,11 +6,11 @@
 #    By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/15 22:30:05 by lcouto            #+#    #+#              #
-#    Updated: 2022/07/05 02:14:20 by lcouto           ###   ########.fr        #
+#    Updated: 2022/07/14 02:46:11 by lcouto           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ScalarTypes
+NAME = convert
 
 INCLUDES = -I include
 

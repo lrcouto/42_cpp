@@ -40,3 +40,5 @@ Repository for the code for the 42 São Paulo C++ introduction to OOP.
   **July 12th 2022** - Cleared up some errors. Not compiling but better than it was before.
 
   **July 13th 2022** - Program compiling and basic stuff is working. Need to treat some edge cases and floating point stuff, but we're getting somewhere.
+
+  **July 14th 2022** - Finishing ex00. I think it's good enough. I'll start ex01 tomorrow.

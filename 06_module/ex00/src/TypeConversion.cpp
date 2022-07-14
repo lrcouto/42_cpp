@@ -6,20 +6,37 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 02:13:20 by lcouto            #+#    #+#             */
-/*   Updated: 2022/07/13 01:57:52 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/07/14 03:19:04 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "TypeConversion.hpp"
 # include <iostream>
+# include <iomanip>
 # include <stdlib.h>
+# include <limits.h>
+# include <float.h>
 
 TypeConversion::TypeConversion(std::string inputString)
 {
+    std::cout << std::fixed << std::setprecision(1);
     this->m_inputString = inputString;
-    this->m_type = "";
-    this->m_typeCode = -1;
-    this->identifyType(inputString);
+    if (inputString == "nan" || inputString == "+inf" || inputString == "-inf")
+    {
+            this->m_type = "double";
+            this->m_typeCode = 3;
+    }
+    else if (inputString == "nanf" || inputString == "+inff" || inputString == "-inff")
+    {
+        this->m_type = "float";
+        this->m_typeCode = 2;
+    }
+    else
+    {
+        this->m_type = "";
+        this->m_typeCode = -1;
+        this->identifyType(inputString);
+    }
     return ;
 }
 
@@ -50,30 +67,61 @@ std::ostream &operator<<(std::ostream &output, TypeConversion const &instance)
 
 void    TypeConversion::displayConvertedValue(void) const
 {
-    std::cout << "Your converted value is: ";
+    std::cout << "\nYour converted values are: \n\n";
+    this->displayChar();
+    this->displayInt();
+    this->displayFloat();
+    this->displayDouble();
+    std::cout << '\n';
+}
 
-    switch (this->getTypeCode()) 
-    {
-        case 0: 
-            std::cout << this->m_charValue << '\n';
-            break;
+void         TypeConversion::displayChar(void) const
+{
+    if (this->m_charValue > '~' || this->m_charValue < '!')
+        std::cout << "char: Non-displayable\n";
+    else if (this->m_inputString == "nan" || this->m_inputString == "nanf" || this->m_inputString == "-inff" ||
+            this->m_inputString == "+inff" || this->m_inputString == "+inf" || this->m_inputString == "-inf")
+        std::cout << "char: Impossible\n";
+    else
+        std::cout << "char: " << this->m_charValue << '\n';
+    return ;
+}
 
-        case 1: 
-            std::cout << this->m_intValue << '\n';
-            break;
+void         TypeConversion::displayInt(void) const
+{
+    if (atol(this->m_inputString.c_str()) > INT_MAX)
+        std::cout << "integer: Overflow\n";
+    else if (atol(this->m_inputString.c_str()) < INT_MIN)
+        std::cout << "integer: Underflow\n";
+    else if (this->m_inputString == "nan" || this->m_inputString == "nanf" || this->m_inputString == "-inff" ||
+            this->m_inputString == "+inff" || this->m_inputString == "+inf" || this->m_inputString == "-inf")
+        std::cout << "integer: Impossible\n";
+    else
+        std::cout << "integer: " << this->m_intValue << '\n';
+}
 
-        case 2:
-            std::cout << this->m_floatValue << '\n';
-            break;
-        
-        case 3: 
-            std::cout << this->m_doubleValue << '\n';
-            break;
-        
-        default:
-            std::cout << "Type not recognized.\n";
-    }
+void         TypeConversion::displayFloat(void) const
+{
+    if (this->m_inputString == "nan" || this->m_inputString == "nanf")
+        std::cout << "float: nanf\n";
+    else if (this->m_inputString == "-inff" || this->m_inputString == "-inf")
+        std::cout << "float: -inff\n";
+    else if (this->m_inputString == "+inff" || this->m_inputString == "+inf")
+        std::cout << "float: +inff\n";
+    else
+        std::cout << "float: " << this->m_floatValue << '\n';
+}
 
+void         TypeConversion::displayDouble(void) const
+{
+    if (this->m_inputString == "nan" || this->m_inputString == "nanf")
+        std::cout << "float: nan\n";
+    else if (this->m_inputString == "-inff" || this->m_inputString == "-inf")
+        std::cout << "float: -inf\n";
+    else if (this->m_inputString == "+inff" || this->m_inputString == "+inf")
+        std::cout << "float: +inf\n";
+    else
+        std::cout << "double: " << this->m_doubleValue << '\n';
 }
 
 std::string  TypeConversion::getInputString(void) const
@@ -180,35 +228,35 @@ bool    TypeConversion::m_isDouble(char const *inputString)
 void    TypeConversion::m_convertChar(char const *inputString)
 {
     this->m_charValue = inputString[0];
-    this->m_intValue = static_cast<int>(NULL);
-    this->m_floatValue = static_cast<float>(NULL);
-    this->m_doubleValue = static_cast<double>(NULL);
+    this->m_intValue = static_cast<int>(this->m_charValue);
+    this->m_floatValue = static_cast<float>(this->m_charValue);
+    this->m_doubleValue = static_cast<double>(this->m_charValue);
     return ;
 }
 
 void    TypeConversion::m_convertInt(char const *inputString)
 {
-    this->m_charValue = '\0';
     this->m_intValue = atoi(inputString);
-    this->m_floatValue = static_cast<float>(NULL);
-    this->m_doubleValue = static_cast<double>(NULL);
+    this->m_charValue = static_cast<char>(this->m_intValue);
+    this->m_floatValue = static_cast<float>(this->m_intValue);
+    this->m_doubleValue = static_cast<double>(this->m_intValue);
     return ;
 }
 
 void    TypeConversion::m_convertFloat(char const *inputString)
 {
-    this->m_charValue = '\0';
-    this->m_intValue = static_cast<int>(NULL);
     this->m_floatValue = atof(inputString);
-    this->m_doubleValue = static_cast<double>(NULL);
+    this->m_charValue = static_cast<char>(this->m_floatValue);
+    this->m_intValue = static_cast<int>(this->m_floatValue);
+    this->m_doubleValue = static_cast<double>(this->m_floatValue);
     return ;
 }
 
 void    TypeConversion::m_convertDouble(char const *inputString)
 {
-    this->m_charValue = '\0';
-    this->m_intValue = static_cast<int>(NULL);
-    this->m_floatValue = static_cast<float>(NULL);
-    this->m_doubleValue = strtod(inputString, 0);
+    this->m_doubleValue = strtod(inputString, NULL);
+    this->m_charValue = static_cast<char>(this->m_doubleValue);
+    this->m_intValue = static_cast<int>(this->m_doubleValue);
+    this->m_floatValue = static_cast<float>(this->m_doubleValue);
     return ;
 }

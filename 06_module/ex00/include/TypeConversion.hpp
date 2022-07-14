@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 00:06:24 by lcouto            #+#    #+#             */
-/*   Updated: 2022/07/12 22:40:26 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/07/14 02:27:27 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,12 @@ class TypeConversion
         std::string  getType(void) const;
         int          getTypeCode(void) const;
         void         identifyType(std::string inputString);
+        
         void         displayConvertedValue(void) const;
+        void         displayChar(void) const;
+        void         displayInt(void) const;
+        void         displayFloat(void) const;
+        void         displayDouble(void) const;
 
         class NotRecognizedException : public std::exception
         {
