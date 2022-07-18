@@ -42,3 +42,5 @@ Repository for the code for the 42 São Paulo C++ introduction to OOP.
   **July 13th 2022** - Program compiling and basic stuff is working. Need to treat some edge cases and floating point stuff, but we're getting somewhere.
 
   **July 14th 2022** - Finishing ex00. I think it's good enough. I'll start ex01 tomorrow.
+
+  **July 18th 2022** - Finished CPP06 and closed the repo. Did the first exercise of CPP07. I need to finish this week because I'm bleeding out lives, so I can't afford to have another one of those spouts of procrastinations. At least the exercises seem a bit shorter now.
