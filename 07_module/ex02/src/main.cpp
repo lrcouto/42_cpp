@@ -6,12 +6,17 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 22:04:39 by lcouto            #+#    #+#             */
-/*   Updated: 2022/07/18 22:40:46 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/07/18 23:13:40 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Array.hpp"
+
+struct complexDataType
+{
+	unsigned int content;
+};
 
 int main(void)
 {
@@ -93,7 +98,7 @@ int main(void)
 			std::cerr << e.what() << '\n';
 		}
 	}
-		std::cout << "\nCreating and testing double array\n" << std::endl;
+	std::cout << "\nCreating and testing double array\n" << std::endl;
 
 	Array<double> doubleArray(10);
 
@@ -114,6 +119,34 @@ int main(void)
 		try
 		{
 			std::cout << doubleArray[i] << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+
+	std::cout << "\nCreating and testing array of structs\n" << std::endl;
+
+	Array<struct complexDataType> structArray(10);
+
+	for (unsigned int i = 0; i < structArray.getSize(); i++)
+	{
+		try
+		{
+			structArray[i].content = i * 15;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+
+	for (unsigned int i = 0; i < structArray.getSize(); i++)
+	{
+		try
+		{
+			std::cout << structArray[i].content << std::endl;
 		}
 		catch(const std::exception& e)
 		{
