@@ -6,11 +6,11 @@
 #    By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/15 22:30:05 by lcouto            #+#    #+#              #
-#    Updated: 2022/07/18 20:09:53 by lcouto           ###   ########.fr        #
+#    Updated: 2022/07/18 01:53:29 by lcouto           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Iter
+NAME = Templates
 
 INCLUDES = -I include
 

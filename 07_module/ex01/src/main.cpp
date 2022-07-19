@@ -6,84 +6,53 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 22:04:39 by lcouto            #+#    #+#             */
-/*   Updated: 2022/07/18 03:08:49 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/07/18 21:30:11 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Whatever.hpp"
+#include "iter.hpp"
 
 int main(void)
 {   
-	std::cout << "\nComparing integers" << std::endl;
-	std::cout << "min(5, 10) = " << min(5, 10) << std::endl;
-	std::cout << "max(5, 10) = " << max(5, 10) << std::endl;
-	std::cout << "\nComparing floats" << std::endl;
-	std::cout << "min(5.5f, 10.7f) = " << min(5.5f, 10.7f) << std::endl;
-	std::cout << "max(5.5f, 10.7f) = " << max(5.5f, 10.7f) << std::endl;
-	std::cout << "\nComparing doubles" << std::endl;
-	std::cout << "min(5.5, 10.7) = " << min(5.5, 10.7) << std::endl;
-	std::cout << "max(5.5, 10.7) = " << max(5.5, 10.7) << std::endl;
-	std::cout << "\nComparing chars" << std::endl;
-	std::cout << "min('a', 'A') = " << min('a', 'A') << std::endl;
-	std::cout << "max('a', 'A') = " << max('a', 'A') << std::endl;
-	std::cout << "\nComparing strings" << std::endl;
-	std::cout << "min(\"abcd\", \"ABCD\") = " << min("abcd", "ABCD") << std::endl;
-	std::cout << "max(\"abcd\", \"ABCD\") = " << max("abcd", "ABCD") << std::endl;
-	std::cout << "\nSwapping integers" << std::endl;
-	
-	int a, b;
-	a = 7;
-	b = 12;
+	std::string stringArray[6] = {"This", "is", "an", "array", "of", "strings!"};
+	int intArray[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+	double doubleArray[10] = {1.9, 2.8, 3.7, 4.6, 5.5, 6.4, 7.3, 8.2, 9.1, 0.0};
 
-	std::cout << "integer a = " << a << " and integer b = " << b << std::endl;
-	std::cout << "Now swapping..." << std::endl;
-	swap(a, b);
-	std::cout << "integer a = " << a << " and integer b = " << b << std::endl;
+	std::cout << "\nPrinting all 3 arrays using my iter function:\n" << std::endl;
+	iter(stringArray, 6, print);
+	std::cout << std::endl;
+	iter(intArray, 10, print);
+	std::cout << std::endl;
+	iter(doubleArray, 10, print);
+	std::cout << std::endl;
 
-	std::cout << "\nSwapping floats" << std::endl;
-	
-	float c, d;
-	c = 7.5f;
-	d = 12.8f;
+	std::cout << "\nTesting increment function, printing again:\n" << std::endl;
+	iter(intArray, 10, inc);
+	iter(intArray, 10, print);
+	std::cout << std::endl;
+	iter(doubleArray, 10, inc);
+	iter(doubleArray, 10, print);
+	std::cout << std::endl;
 
-	std::cout << "float c = " << c << " and float d = " << d << std::endl;
-	std::cout << "Now swapping..." << std::endl;
-	swap(c, d);
-	std::cout << "float c = " << c << " and float d = " << d << std::endl;
+	std::cout << "\nDecrementing thrice, printing again:\n" << std::endl;
+	iter(intArray, 10, dec);
+	iter(intArray, 10, dec);
+	iter(intArray, 10, dec);
+	iter(intArray, 10, print);
+	std::cout << std::endl;
+	iter(doubleArray, 10, dec);
+	iter(doubleArray, 10, dec);
+	iter(doubleArray, 10, dec);
+	iter(doubleArray, 10, print);
+	std::cout << std::endl;
 
-	std::cout << "\nSwapping doubles" << std::endl;
-	
-	double e, f;
-	e = 7.1;
-	f = 12.2;
-
-	std::cout << "double e = " << e << " and double f = " << f << std::endl;
-	std::cout << "Now swapping..." << std::endl;
-	swap(e, f);
-	std::cout << "double e = " << e << " and double f = " << f << std::endl;
-
-	std::cout << "\nSwapping strings" << std::endl;
-	
-	std::string g = "World";
-	std::string h = "Hello";
-
-	std::cout << "string g = " << g << " and string f = " << h << std::endl;
-	std::cout << "Now swapping..." << std::endl;
-	swap(g, h);
-	std::cout << "string g = " << g << " and string h = " << h << std::endl;
-
-	std::cout << "\nSwapping with pointers" << std::endl;
-	
-	int *i = &a;
-	int *j = &b;
-
-	std::cout << "pointer i's address is " << &i << " and it's pointing to memory " << i << std::endl;
-	std::cout << "pointer j's address is " << &j << " and it's pointing to memory " << j << std::endl;
-	std::cout << "Now swapping..." << std::endl;
-	swap(i, j);
-	std::cout << "pointer i's address is " << &i << " and it's pointing to memory " << i << std::endl;
-	std::cout << "pointer j's address is " << &j << " and it's pointing to memory " << j << std::endl;
-
+	std::cout << "\nRainbowfying your arrays, please wait:\n" << std::endl;
+	iter(stringArray, 6, rainbowfy);
+	std::cout << std::endl;
+	iter(intArray, 10, rainbowfy);
+	std::cout << std::endl;
+	iter(doubleArray, 10, rainbowfy);
+	std::cout << '\n' << std::endl;
     return (0);
 }
