@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 22:04:39 by lcouto            #+#    #+#             */
-/*   Updated: 2022/07/18 03:08:49 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/07/18 23:00:37 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,6 @@ int main(void)
 	swap(i, j);
 	std::cout << "pointer i's address is " << &i << " and it's pointing to memory " << i << std::endl;
 	std::cout << "pointer j's address is " << &j << " and it's pointing to memory " << j << std::endl;
-
+	std::cout << std::endl;
     return (0);
 }
