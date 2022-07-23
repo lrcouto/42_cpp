@@ -6,11 +6,11 @@
 #    By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/15 22:30:05 by lcouto            #+#    #+#              #
-#    Updated: 2022/07/23 00:42:20 by lcouto           ###   ########.fr        #
+#    Updated: 2022/07/23 00:42:10 by lcouto           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Array
+NAME = EasyFind
 
 INCLUDES = -I include
 

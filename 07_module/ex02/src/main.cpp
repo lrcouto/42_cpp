@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 22:04:39 by lcouto            #+#    #+#             */
-/*   Updated: 2022/07/18 23:13:40 by lcouto           ###   ########.fr       */
+/*   Updated: 2022/07/18 23:26:05 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int main(void)
 
 	Array<int> intArrayCopy(intArray);
 	std::cout << "intArrayCopy[2]: " << intArrayCopy[2] << std::endl;
-	std::cout << "Changing value on original array" << intArrayCopy[2] << std::endl;
+	std::cout << "Changing value on original array, which was " << intArrayCopy[2] << std::endl;
 	intArray[2] = -1;
 	std::cout << "intArray[2]: " << intArray[2] << std::endl;
 	std::cout << "intArrayCopy[2]: " << intArrayCopy[2] << std::endl;
