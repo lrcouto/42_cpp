@@ -46,3 +46,5 @@ Repository for the code for the 42 São Paulo C++ introduction to OOP.
   **July 18th 2022** - Finished CPP06 and closed the repo. Did the first exercise of CPP07. I need to finish this week because I'm bleeding out lives, so I can't afford to have another one of those spouts of procrastination. At least the exercises seem a bit shorter now.
 
   - Quickly whipped up the rest of module 07, and am uploading it to the vogsphere. Starting the last module tomorrow.
+
+  **July 24th 2022** - Finished CPP08. That's it, I'm done. I'm free. For the next 24-ish hours at least until I have to start Containers.
