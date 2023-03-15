@@ -48,3 +48,5 @@ Repository for the code for the 42 São Paulo C++ introduction to OOP.
   - Quickly whipped up the rest of module 07, and am uploading it to the vogsphere. Starting the last module tomorrow.
 
   **July 24th 2022** - Finished CPP08. That's it, I'm done. I'm free. For the next 24-ish hours at least until I have to start Containers.
+
+  **March 14th 2022** - Well well well, if it isn't 42France realizing that ft_containers kinda sucks. Starting CPP09 after freestyling the last stretch of the common core and getting ft_transcendence done before finishing the rest.
