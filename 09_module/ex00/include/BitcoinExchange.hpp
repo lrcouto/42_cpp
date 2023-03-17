@@ -13,18 +13,22 @@
 # ifndef BITCOINEXCHANGE_HPP
 # define BITCOINEXCHANGE_HPP
 
-# include <iostream>
+# include <string>
 # include <map>
 
 class BitcoinExchange
 {
 private:
+    std::map<std::string, double>   _exchangeRate;
+
+    std::map<std::string, double>   csvToExchangeRate(std::string filePath);
 
 public:
     BitcoinExchange();
     BitcoinExchange(const BitcoinExchange& other);
     ~BitcoinExchange();
     BitcoinExchange& operator=(const BitcoinExchange& other);
+
 };
 
 #endif

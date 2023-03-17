@@ -5,29 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 01:41:21 by lcouto            #+#    #+#             */
-/*   Updated: 2023/03/14 23:09:17 by lcouto           ###   ########.fr       */
+/*   Created: 2023/03/17 16:43:04 by lcouto            #+#    #+#             */
+/*   Updated: 2023/03/17 16:43:04 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+# include "BitcoinExchange.hpp"
 
-# include "doctest.h"
-
-bool testTheTester(void)
+int main()
 {
-    std::cout << "\nTesting the tester:";
-    if (true)
-    {
-        std::cout << "\033[32;1m OK!\033[0m" << std::endl;
-        return (true);
-    }
-    std::cout << "\033[31;1m FAILED!\033[0m" << std::endl;
-    return (false);
+    BitcoinExchange btc;
+    BitcoinExchange btc2(btc);
+    return 0;
 }
 
-
-TEST_CASE("Running tests for ex00")
-{
-    CHECK(testTheTester() == true);
-}
