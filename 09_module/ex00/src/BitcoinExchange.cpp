@@ -11,13 +11,19 @@
 /* ************************************************************************** */
 
 # include "BitcoinExchange.hpp"
-# include <iostream>
 # include <fstream>
 # include <sstream>
 # include <stdlib.h>
 
-BitcoinExchange::BitcoinExchange()
+BitcoinExchange::BitcoinExchange(): _userInput("");
 {
+    this->_exchangeRate = csvToExchangeRate("data.csv");
+    return;
+}
+
+BitcoinExchange::BitcoinExchange(std::string filePath)
+{
+    getUserInput(filePath);
     this->_exchangeRate = csvToExchangeRate("data.csv");
     return;
 }
@@ -63,4 +69,38 @@ std::map<std::string, double> BitcoinExchange::csvToExchangeRate(std::string con
     fileStream.close();
     exchangeRateMap.erase("date");
     return exchangeRateMap;
+}
+
+void BitcoinExchange::getUserInput(std::string filePath)
+{
+    this->_userInput = filePath;
+}
+
+void processInput()
+{
+    std::string                         line;
+    std::ifstream                       fileStream(this->_userInput.c_str());
+
+    while (std::getline(fileStream, line)) {
+        std::istringstream lineStream(line);
+        std::string date, value;
+        if (std::getline(lineStream, date, '|') && std::getline(lineStream, value)) {
+            validateDate(date);
+            validateValue(date, value);
+        }
+    }
+
+    fileStream.close();
+}
+
+void BitcoinExchange::validateDate(std::string date)
+{
+    // TODO: write format validation.
+    std::cout << date;
+}
+
+void BitcoinExchange::validateValue(std::string value)
+{
+    multipliedValue = static_cast<int>(value);
+    std::cout << intValue * this->_exchangeRate[date];
 }

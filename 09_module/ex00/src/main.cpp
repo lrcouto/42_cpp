@@ -12,10 +12,15 @@
 
 # include "BitcoinExchange.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
-    BitcoinExchange btc;
-    BitcoinExchange btc2(btc);
+    if (argc != 2)
+    {
+        std::cout << "\033[31;1mThis program expects a file path as an argument.\033[0m" << std::endl;
+        return 1;
+    }
+
+    BitcoinExchange btc(argv[1]);
     return 0;
 }
 
