@@ -16,11 +16,12 @@ int main(int argc, char **argv)
 {
     if (argc != 2)
     {
-        std::cout << "\033[31;1mThis program expects a file path as an argument.\033[0m" << std::endl;
+        std::cerr << "\033[31;1mThis program expects a file path as an argument.\033[0m" << std::endl;
         return 1;
     }
 
     BitcoinExchange btc(argv[1]);
+    btc.processInput();
     return 0;
 }
 

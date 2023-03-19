@@ -21,9 +21,12 @@ class BitcoinExchange
 {
 private:
     std::map<std::string, double>   _exchangeRate;
-    std::string                     _userInput;
+    const char                      *_userInput;
 
     std::map<std::string, double>   csvToExchangeRate(std::string filePath);
+    std::string                     validateDate(std::string line);
+    double                          validateValue(std::string line, double rate);
+    double                          getClosestExchangeRate(std::string date);
 
 public:
     BitcoinExchange();
@@ -32,8 +35,8 @@ public:
     ~BitcoinExchange();
     BitcoinExchange &operator=(const BitcoinExchange& other);
 
-    getUserInput(const char *filePath);
-
+    void        setUserInput(const char *filePath);
+    void        processInput();
 };
 
 #endif
