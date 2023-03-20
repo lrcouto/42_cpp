@@ -80,6 +80,12 @@ void BitcoinExchange::processInput()
     std::ifstream                       fileStream(this->_userInput);
 
     std::getline(fileStream, line);
+    if (line.compare("date | value") != 0)
+    {
+        std::cerr << "\033[31;1mWRONG!\033[0m" << std::endl;
+        fileStream.close();
+        return ;
+    }
     while (std::getline(fileStream, line)) 
     {
         std::istringstream lineStream(line);
@@ -95,23 +101,21 @@ void BitcoinExchange::processInput()
 std::string BitcoinExchange::validateDate(std::string line)
 {
     std::string date = line.substr(0, 10);
-    std::stringstream ss;
     int year, month, day;
-    ss.str(date.substr(0, 4));
-    ss >> year;
-    ss.clear();
-    ss.str(date.substr(5, 7));
-    ss >> month;
-    ss.clear();
-    ss.str(date.substr(8, 10));
-    ss >> day;
+    char separator;
+    std::stringstream ss(date);
+    ss >> year >> separator >> month >> separator >> day;
 
     if (year < 2009)
     {
         std::cerr << "\033[31;1mInformation unavailable. Earliest year available: 2009.\033[0m" << std::endl;
         return "";
     }
-    if ((month < 1 || month > 12) || (day < 1 || day > 31))
+    if ((month < 1 || month > 12) ||
+        (day < 1 || day > 31) ||
+        ((month == 4 || month == 6 || month == 9 || month == 11) && (day > 30)) ||
+        ((month == 2) && (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) && (day > 29)) ||
+        ((month == 2) && (!(year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))) && (day > 28)))
     {
         std::cerr << "\033[31;1mImpossible date: " << date << "\033[0m" << std::endl;
         return "";
@@ -159,16 +163,9 @@ double BitcoinExchange::getClosestExchangeRate(std::string date)
     else
     {
         int year, month, day;
-        std::stringstream ss;
-        ss.str(date.substr(0, 4));
-        ss >> year;
-        ss.clear();
-        ss.str(date.substr(5, 7));
-        ss >> month;
-        ss.clear();
-        ss.str(date.substr(8, 10));
-        ss >> day;
-        ss.clear();
+        char separator;
+        std::stringstream ss(date);
+        ss >> year >> separator >> month >> separator >> day;
         it = this->_exchangeRate.end();
         while (it == this->_exchangeRate.end())
         {
