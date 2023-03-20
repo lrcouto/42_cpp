@@ -52,3 +52,5 @@ Repository for the code for the 42 São Paulo C++ introduction to OOP.
   **March 14th 2022** - Well well well, if it isn't 42France realizing that ft_containers kinda sucks. Starting CPP09 after freestyling the last stretch of the common core and getting ft_transcendence done before finishing the rest.
 
   **March 18th 2022** - Ex00 done I think. The actual usage of the container is easy. The most time-consuming part is parsing and validating dates without access to regex or the boost library.
+
+  **March 19th 2022** - Small improvements added to ex00.

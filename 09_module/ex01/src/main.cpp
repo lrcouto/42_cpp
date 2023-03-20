@@ -6,13 +6,18 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 01:41:21 by lcouto            #+#    #+#             */
-/*   Updated: 2023/03/14 23:09:33 by lcouto           ###   ########.fr       */
+/*   Updated: 2023/03/20 00:53:24 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 
 # include "doctest.h"
+
+int main(int argc, char **argv)
+{
+    if (argc =! 1)
+}
 
 bool testTheTester(void)
 {
