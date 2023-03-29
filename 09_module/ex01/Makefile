@@ -6,7 +6,7 @@
 #    By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/15 22:30:05 by lcouto            #+#    #+#              #
-#    Updated: 2023/03/14 22:58:50 by lcouto           ###   ########.fr        #
+#    Updated: 2023/03/29 00:51:05 by lcouto           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ DIR_SRCS	=	src
 DIR_BUILD	=	build
 
 SRCS		=	$(DIR_SRCS)/main.cpp \
+				$(DIR_SRCS)/RPN.cpp \
 
 BUILD		=	$(subst $(DIR_SRCS), $(DIR_BUILD), $(SRCS:.cpp=.o))
 
