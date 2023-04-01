@@ -24,6 +24,7 @@ private:
     const char          *_userInput;
 
     void                processInput();
+    bool                validateString();
 
 public:
     RPN();
@@ -33,6 +34,7 @@ public:
     RPN &operator=(const RPN& other);
 
     void    setUserInput(const char *input);
+    int     getLastResult(void);
 };
 
 #endif
