@@ -11,10 +11,6 @@
 /* ************************************************************************** */
 
 # include "BitcoinExchange.hpp"
-# include <fstream>
-# include <sstream>
-# include <stdlib.h>
-# include <iomanip>
 
 BitcoinExchange::BitcoinExchange(): _userInput("")
 {

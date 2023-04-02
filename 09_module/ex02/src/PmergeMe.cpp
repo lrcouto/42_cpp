@@ -179,9 +179,9 @@ double	PmergeMe::deltaTime(long long time)
 void	PmergeMe::printDifference(void)
 {
 	if (_sorted == false)
-		std::cout << "Before: ";
+		std::cout << "\033[33;1mOriginal Input: \033[0m";
 	else
-		std::cout << "After:  ";
+		std::cout << "\033[33;1mSorted Input: \033[0m";
 	std::vector<int>::iterator it = _vector.begin();
 	std::vector<int>::iterator ite = _vector.end();
 	while (it != ite)
@@ -195,19 +195,26 @@ void	PmergeMe::printDifference(void)
 void	PmergeMe::printTime(std::string containerType) const
 {
 	double delta;
+	std::string color;
 	if (containerType == "vector")
+	{
 		delta = _deltaTimeVector;
+		color = "\033[35;1m";
+	}
 	else if (containerType == "deque")
+	{
 		delta = _deltaTimeDeque;
+		color = "\033[36;1m";
+	}
     else
     {
         std::cerr << "\033[31;1mError - Invalid container type.\033[0m" << std::endl;
         exit(1);
     }
 	std::cout 
-		<< "Time to process a range of " << _size 
-		<< " elements with std::" << containerType << ": "
-		<< std::fixed << std::setprecision(5) << delta << " ms" << std::endl;
+		<< color << "Time elapsed to sort " << _size 
+		<< " integers with std::" << containerType << ": "
+		<< std::fixed << std::setprecision(5) << delta << " ms\033[0m" << std::endl;
 }
 
 double	PmergeMe::getDeltaTimeForVector(void) const

@@ -58,3 +58,5 @@ Repository for the code for the 42 São Paulo C++ introduction to OOP.
   **March 29th 2022** - Implemented the basis of ex01. Been sick lately and busy with work. Need to do some error handling and testing but I found it pretty straightforward.
 
   **April 1st 2022** - Finished ex01, with what I believe is a robust amount of testing and handling of edge cases.
+
+  **April 2nd 2022** - Finished ex02, will now close the repo and get ready to evaluate.
