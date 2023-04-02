@@ -6,28 +6,20 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 01:41:21 by lcouto            #+#    #+#             */
-/*   Updated: 2023/03/14 23:10:01 by lcouto           ###   ########.fr       */
+/*   Updated: 2023/04/02 19:43:26 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+# include "PmergeMe.hpp"
 
-# include "doctest.h"
 
-bool testTheTester(void)
+int main(int argc, char **argv)
 {
-    std::cout << "\nTesting the tester:";
-    if (true)
+    if (argc < 2)
     {
-        std::cout << "\033[32;1m OK!\033[0m" << std::endl;
-        return (true);
+        std::cerr << "\033[31;1mPlease enter a sequence of positive integers.\033[0m" << std::endl;
+        exit(1);
     }
-    std::cout << "\033[31;1m FAILED!\033[0m" << std::endl;
-    return (false);
-}
-
-
-TEST_CASE("Running tests for ex02")
-{
-    CHECK(testTheTester() == true);
+        PmergeMe sorterObj(argc, argv);
+        return 0;
 }

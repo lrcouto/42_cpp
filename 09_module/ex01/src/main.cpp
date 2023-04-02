@@ -6,7 +6,7 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 01:41:21 by lcouto            #+#    #+#             */
-/*   Updated: 2023/04/01 18:14:05 by lcouto           ###   ########.fr       */
+/*   Updated: 2023/04/01 19:01:53 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int logic(int argc, char **argv)
 {
     if (argc != 2)
     {
-        std::cerr << "\033[31;1mPlease enter a string with an inverted polish mathematical expression,\nor the work \"test\" to run unit tests.\033[0m" << std::endl;
+        std::cerr << "\033[31;1mPlease enter a string with an inverted polish mathematical expression,\nor the word \"test\" to run unit tests.\033[0m" << std::endl;
         return 1;
     }
     std::string input = argv[1];

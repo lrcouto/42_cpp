@@ -6,7 +6,7 @@
 #    By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/15 22:30:05 by lcouto            #+#    #+#              #
-#    Updated: 2023/03/14 22:58:47 by lcouto           ###   ########.fr        #
+#    Updated: 2023/04/02 14:47:19 by lcouto           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ DIR_SRCS	=	src
 DIR_BUILD	=	build
 
 SRCS		=	$(DIR_SRCS)/main.cpp \
+				$(DIR_SRCS)/PmergeMe.cpp \
 
 BUILD		=	$(subst $(DIR_SRCS), $(DIR_BUILD), $(SRCS:.cpp=.o))
 

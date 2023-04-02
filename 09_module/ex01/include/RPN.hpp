@@ -16,6 +16,8 @@
 # include <iostream>
 # include <string>
 # include <stack>
+# include <algorithm>
+# include <cctype>
 
 class RPN
 {

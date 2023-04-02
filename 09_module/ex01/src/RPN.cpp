@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 # include "RPN.hpp"
-# include <algorithm>
-# include <cctype>
 
 RPN::RPN(): _userInput("")
 {
