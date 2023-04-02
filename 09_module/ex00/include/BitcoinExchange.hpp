@@ -16,6 +16,10 @@
 # include <iostream>
 # include <string>
 # include <map>
+# include <fstream>
+# include <sstream>
+# include <stdlib.h>
+# include <iomanip>
 
 class BitcoinExchange
 {

@@ -6,28 +6,44 @@
 /*   By: lcouto <lcouto@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 01:41:21 by lcouto            #+#    #+#             */
-/*   Updated: 2023/03/14 23:10:01 by lcouto           ###   ########.fr       */
+/*   Updated: 2023/04/02 15:08:21 by lcouto           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+# define DOCTEST_CONFIG_IMPLEMENT
 
 # include "doctest.h"
+# include "PmergeMe.hpp"
 
-bool testTheTester(void)
+int callPmergeMe()
 {
-    std::cout << "\nTesting the tester:";
-    if (true)
-    {
-        std::cout << "\033[32;1m OK!\033[0m" << std::endl;
-        return (true);
-    }
-    std::cout << "\033[31;1m FAILED!\033[0m" << std::endl;
-    return (false);
+    return 0;
 }
 
-
-TEST_CASE("Running tests for ex02")
+int logic(int argc, char **argv)
 {
-    CHECK(testTheTester() == true);
+    if (argc < 2)
+    {
+        std::cerr << "\033[31;1mPlease enter a sequence of positive integers,\nor the word \"test\" to run unit tests.\033[0m" << std::endl;
+        exit(1);
+    }
+    std::string input = argv[1];
+    if (input.compare("test") == 0)
+        return doctest::Context(argc, argv).run();
+    else
+    {
+        PmergeMe sorterObj(argc, argv);
+        return 0;
+    }
+}
+
+int main(int argc, char **argv)
+{
+    return logic(argc, argv);
+}
+
+TEST_CASE("Running tests for PmergeMe")
+{
+    CHECK(callPmergeMe() == 0);
+
 }
